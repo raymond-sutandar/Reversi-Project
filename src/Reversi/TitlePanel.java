@@ -8,6 +8,12 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.*;
 
+/**
+ * A TitlePanel is a JPanel which displays the "Title.png" image.
+ * 
+ * @author Raymond Sutandar
+ *
+ */
 public class TitlePanel extends JPanel {
 	BufferedImage title_image = null;
 	
