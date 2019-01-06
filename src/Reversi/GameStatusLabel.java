@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 /**
- * Singleton label that displays the game's status (ie. who's turn it is, if someone has won).
+ * Singleton label that displays the game's status (ie. who's turn it is, or if someone has won).
  * @author Raymond Sutandar
  *
  */
@@ -26,6 +26,7 @@ public class GameStatusLabel extends JLabel implements Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 		if (arg instanceof String) {
+			//arg is of type Object. Can't use it as a string until I cast it with (String).
 			String status_string = (String)arg;
 			if (status_string.equals("player 1 turn")) {
 				this.setText("Player 1's turn.");

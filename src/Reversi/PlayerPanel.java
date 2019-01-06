@@ -13,6 +13,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
+/**
+ * A PlayerPanel displays a player's title (Player 1 (P1Title.png) or Player 2 (P2Title.png)), image (Player1Rep.png or Player2Rep.png), 
+ * and health.
+ * @author Raymond Sutandar
+ *
+ */
 public class PlayerPanel extends JPanel {
 	BufferedImage player_title = null;
 	BufferedImage player_rep = null;
@@ -27,29 +33,18 @@ public class PlayerPanel extends JPanel {
 	
 	GridBagConstraints grid_constraint = new GridBagConstraints();
 	
+	/**
+	 * Sets up a GridBagLayout to be used for a PlayerPanel.
+	 */
 	public PlayerPanel() {
 		this.setLayout(new GridBagLayout());
 		this.setVisible(true);
 		this.setPreferredSize(new Dimension(192, 384));
-		//sthis.setBackground(Color.lightGray);
-		
-		//Border label_border = BorderFactory.createLineBorder(Color.black, 2);
-		
-		//health_P1_label.setPreferredSize(new Dimension(192, 64));
-		//health_P1_label.setFont(new Font("SansSerif", Font.BOLD, 26));
-		//health_P1_label.setHorizontalAlignment(SwingConstants.CENTER);
-		//health_P1_label.setBorder(label_border);
-		
-		//health_P2_label.setPreferredSize(new Dimension(192, 64));
-		//health_P2_label.setFont(new Font("SansSerif", Font.BOLD, 26));
-		//health_P2_label.setHorizontalAlignment(SwingConstants.CENTER);
-		//health_P2_label.setBorder(label_border);
-		
-		//player_title_pic.setPreferredSize(new Dimension(192, 128));
-		
-		//player_rep_pic.setPreferredSize(new Dimension(192, 224));
 	}
 	
+	/**
+	 * Sets up the display of Player 1's PlayerPanel with their player title, image, and health.
+	 */
 	public void setupP1PlayerPanel() {
 		try {
 			player_title = ImageIO.read(getClass().getResource("P1Title.png"));
@@ -65,7 +60,6 @@ public class PlayerPanel extends JPanel {
 			
 		}
 		
-		
 		player_title_pic = new JLabel(new ImageIcon(player_title));
 		player_rep_pic = new JLabel(new ImageIcon(player_rep));
 		
@@ -80,12 +74,15 @@ public class PlayerPanel extends JPanel {
 		grid_constraint.gridx = 0;
 		grid_constraint.gridy = 1;
 		this.add(health_P1_label, grid_constraint);
-		//health_P1_label.setAlignmentX(CENTER_ALIGNMENT);
+		
 		grid_constraint.gridx = 0;
 		grid_constraint.gridy = 2;
 		this.add(player_rep_pic, grid_constraint);
 	}
 	
+	/**
+	 * Sets up the display of Player 2's PlayerPanel with their player title, image, and health.
+	 */
 	public void setupP2PlayerPanel() {
 		try {
 			player_title = ImageIO.read(getClass().getResource("P2Title.png"));
@@ -115,14 +112,16 @@ public class PlayerPanel extends JPanel {
 		grid_constraint.gridx = 0;
 		grid_constraint.gridy = 1;
 		this.add(health_P2_label, grid_constraint);
-		//health_P2_label.setAlignmentX(JLabel.CENTER_ALIGNMENT);
+		
 		grid_constraint.gridx = 0;
 		grid_constraint.gridy = 2;
 		this.add(player_rep_pic, grid_constraint);
 	}
 	
-	
-	
+	/**
+	 * Reduces Player 1's health (p1health) by damage, and updates Player 1's health display to the new value of p1health.
+	 * @param damage - The reduction in health to be applied to a player's health.
+	 */
 	public static void damageP1Health(int damage) {
 		p1health -= damage;
 		health_P1_label.setText("Health: " + String.valueOf(p1health));
@@ -134,6 +133,10 @@ public class PlayerPanel extends JPanel {
 		p1health = new_P1_health;
 	}
 	
+	/**
+	 * Reduces Player 2's health (p2health) by damage, and updates Player 2's health display to the new value of p2health.
+	 * @param damage - The reduction in health to be applied to a player's health.
+	 */
 	public static void damageP2Health(int damage) {
 		p2health -= damage;
 		health_P2_label.setText("Health: " + String.valueOf(p2health));

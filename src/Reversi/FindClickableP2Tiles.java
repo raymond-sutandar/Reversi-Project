@@ -53,27 +53,17 @@ public class FindClickableP2Tiles {
 			}
 		}
 		
-		//System.out.println("Num_clickable_tiles for P2: " + num_clickable_tiles);
-		/*
-		if (num_clickable_tiles == 0) {
-				
-			SingletonUpdateBoard clickables_updater = SingletonUpdateBoard.getInstance();
-			if (PlayerPanel.p1health > PlayerPanel.p2health) {
-				clickables_updater.updateGameStatusLabel("player 1 win");
-			}
-			else if (PlayerPanel.p1health < PlayerPanel.p2health) {
-				clickables_updater.updateGameStatusLabel("player 2 win");
-			}
-			else {
-				clickables_updater.updateGameStatusLabel("draw");
-			}
-		}
-		*/
-		
 		return num_clickable_tiles;
 		
 	}
 	
+	/**
+	 * Finds tiles that can be clicked on by Player 2 above the tile at tile_board[x_pos][y_pos], and 
+	 * updates them to appear clickable (makes them grey tiles).
+	 * @param tile_board - The current state of the game board.
+	 * @param x_pos - The x-coordinate of a given (red) tile.
+	 * @param y_pos - The y-coordinate of a given (red) tile.
+	 */
 	public void findP2ClickableUpTiles(Tile[][] tile_board, int x_pos, int y_pos) {
 		boolean checkAvailable = true; //True if tile available in a direction from tile_board[k][l]
 		boolean crossedRed = false; //True if I have checked a red tile
@@ -116,6 +106,13 @@ public class FindClickableP2Tiles {
 		}
 	}
 	
+	/**
+	 * Finds tiles that can be clicked on by Player 2 below the tile at tile_board[x_pos][y_pos], and 
+	 * updates them to appear clickable (makes them grey tiles).
+	 * @param tile_board - The current state of the game board.
+	 * @param x_pos - The x-coordinate of a given (red) tile.
+	 * @param y_pos - The y-coordinate of a given (red) tile.
+	 */
 	public void findP2ClickableDownTiles(Tile[][] tile_board, int x_pos, int y_pos, int max_height) {
 		boolean checkAvailable = true;
 		boolean crossedRed = false;
@@ -156,6 +153,13 @@ public class FindClickableP2Tiles {
 		}
 	}
 	
+	/**
+	 * Finds tiles that can be clicked on by Player 2 left of the tile at tile_board[x_pos][y_pos], and 
+	 * updates them to appear clickable (makes them grey tiles).
+	 * @param tile_board - The current state of the game board.
+	 * @param x_pos - The x-coordinate of a given (red) tile.
+	 * @param y_pos - The y-coordinate of a given (red) tile.
+	 */
 	public void findP2ClickableLeftTiles(Tile[][] tile_board, int x_pos, int y_pos) {
 		boolean checkAvailable = true;
 		boolean crossedRed = false;
@@ -196,6 +200,13 @@ public class FindClickableP2Tiles {
 		}
 	}
 	
+	/**
+	 * Finds tiles that can be clicked on by Player 2 right of the tile at tile_board[x_pos][y_pos], and 
+	 * updates them to appear clickable (makes them grey tiles).
+	 * @param tile_board - The current state of the game board.
+	 * @param x_pos - The x-coordinate of a given (red) tile.
+	 * @param y_pos - The y-coordinate of a given (red) tile.
+	 */
 	public void findP2ClickableRightTiles(Tile[][] tile_board, int x_pos, int y_pos, int max_width) {
 		boolean checkAvailable = true;
 		boolean crossedRed = false;
@@ -237,6 +248,13 @@ public class FindClickableP2Tiles {
 		}
 	}
 	
+	/**
+	 * Finds tiles that can be clicked on by Player 2 diagonally above and to the left of the tile at tile_board[x_pos][y_pos], and 
+	 * updates them to appear clickable (makes them grey tiles).
+	 * @param tile_board - The current state of the game board.
+	 * @param x_pos - The x-coordinate of a given (red) tile.
+	 * @param y_pos - The y-coordinate of a given (red) tile.
+	 */
 	public void findP2ClickableUpLeftTiles(Tile[][] tile_board, int x_pos, int y_pos) {
 		boolean checkAvailable = true;
 		boolean crossedRed = false;
@@ -282,6 +300,13 @@ public class FindClickableP2Tiles {
 		}
 	}
 	
+	/**
+	 * Finds tiles that can be clicked on by Player 2 diagonally above and to the right of the tile at tile_board[x_pos][y_pos], and 
+	 * updates them to appear clickable (makes them grey tiles).
+	 * @param tile_board - The current state of the game board.
+	 * @param x_pos - The x-coordinate of a given (red) tile.
+	 * @param y_pos - The y-coordinate of a given (red) tile.
+	 */
 	public void findP2ClickableUpRightTiles(Tile[][] tile_board, int x_pos, int y_pos, int max_width) {
 		boolean checkAvailable = true;
 		boolean crossedRed = false;
@@ -327,6 +352,13 @@ public class FindClickableP2Tiles {
 		}
 	}
 	
+	/**
+	 * Finds tiles that can be clicked on by Player 2 diagonally below and to the left of the tile at tile_board[x_pos][y_pos], and 
+	 * updates them to appear clickable (makes them grey tiles).
+	 * @param tile_board - The current state of the game board.
+	 * @param x_pos - The x-coordinate of a given (red) tile.
+	 * @param y_pos - The y-coordinate of a given (red) tile.
+	 */
 	public void findP2ClickableDownLeftTiles(Tile[][] tile_board, int x_pos, int y_pos, int max_height) {
 		boolean checkAvailable = true;
 		boolean crossedRed = false;
@@ -372,6 +404,13 @@ public class FindClickableP2Tiles {
 		}
 	}
 	
+	/**
+	 * Finds tiles that can be clicked on by Player 2 diagonally below and to the right of the tile at tile_board[x_pos][y_pos], and 
+	 * updates them to appear clickable (makes them grey tiles).
+	 * @param tile_board - The current state of the game board.
+	 * @param x_pos - The x-coordinate of a given (red) tile.
+	 * @param y_pos - The y-coordinate of a given (red) tile.
+	 */
 	public void findP2ClickableDownRightTiles(Tile[][] tile_board, int x_pos, int y_pos, int max_width, int max_height) {
 		boolean checkAvailable = true;
 		boolean crossedRed = false;

@@ -5,7 +5,7 @@ import java.util.Observer;
 
 /**
  * This class sets up the game grid for BoardPanel and handles the process of turn
- * changing as an Observer to game changes.
+ * changing as this class is an Observer to game changes.
  * @author Raymond Sutandar
  *
  */
@@ -118,6 +118,10 @@ public class GameController implements Observer {
 		
 	}
 	
+	/**
+	 * Once the whole board is filled with red or blue tiles or a player's health reaches 0, endGame checks
+	 * who won the game based on players' health. The player with more health wins.
+	 */
 	public void endGame() {
 		if (PlayerPanel.p1health > PlayerPanel.p2health) {
 			SingletonUpdateBoard.getInstance().updateGameStatusLabel("player 1 win");

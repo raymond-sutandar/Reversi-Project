@@ -14,10 +14,6 @@ import java.util.Random;
  *
  */
 public class BoardPanel extends JPanel {
-	
-	//static boolean p1Turn = true; //True means player 1's turn, false means player 2's turn
-	
-	
 	//Singleton design pattern for BoardPanel
 	private static BoardPanel singletonBoardPanel = null;
 	
@@ -34,6 +30,13 @@ public class BoardPanel extends JPanel {
 	
 	}
 	
+	/**
+	 * Places obstacle tiles, empty tiles, and starting player tiles on the given tile_board in a BoardPanel.
+	 * @param tile_board - The given game board.
+	 * @param board_length - tile_board's length (height).
+	 * @param board_width - tile_board's width.
+	 * @return Returns a tile_board that is set up, that is with the default player tiles, obstacle tiles, and free tiles placed.
+	 */
 	public Tile[][] setupBoardPanel(Tile[][] tile_board, int board_length, int board_width) {
 		int tile_counter = 0; //Num of tile
 		
@@ -84,9 +87,9 @@ public class BoardPanel extends JPanel {
 	
 	/**
 	 * Chooses an obstacle set to determine which tiles on the game board will be obstacles.
-	 * @param tile_board
-	 * @param board_length
-	 * @param board_width
+	 * @param tile_board - The given game board.
+	 * @param board_length - tile_board's length (height).
+	 * @param board_width - tile_board's width.
 	 */
 	public void generateObstacleTiles(Tile[][] tile_board, int board_length, int board_width) {
 		Random random_generator = new Random();
@@ -94,6 +97,7 @@ public class BoardPanel extends JPanel {
 		int random_index = random_generator.nextInt(obstacle_array_size);
 		
 		int[][] obstacle_tile_array = new int[obstacle_array_size][5];
+		// Choose random tiles among these.
 		int[] obstacles1 = {0, 7, 8, 63, 40};
 		int[] obstacles2 = {3, 6, 49, 60, 41};
 		int[] obstacles3 = {8, 48, 56, 15, 39};

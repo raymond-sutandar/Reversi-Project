@@ -3,7 +3,7 @@ package Reversi;
 import java.util.ArrayList;
 
 /**
- * Singleton object used to find the tiles that can be clicked by player 1 when it is their turn.
+ * Singleton object used to find the tiles that can be clicked on by player 1 when it is their turn.
  * @author Raymond Sutandar
  *
  */
@@ -27,9 +27,9 @@ public class FindClickableP1Tiles {
 	
 	/**
 	 * Checks for tiles that can be clicked by player 1.
-	 * @param tile_board
-	 * @param board_length
-	 * @param board_width
+	 * @param tile_board - A given state of the game board.
+	 * @param board_length - tile_board's length (height).
+	 * @param board_width - tile_board's width.
 	 */
 	public int clickableP1Tiles(Tile[][] tile_board, int board_length, int board_width) {
 		
@@ -53,26 +53,17 @@ public class FindClickableP1Tiles {
 			}
 		}
 		
-		//System.out.println("Num_clickable_tiles for P1: " + num_clickable_tiles);
-		/*
-		if (num_clickable_tiles == 0) {
-			//System.out.println("Player 1 num-clickable_tiles = 0.");
-			SingletonUpdateBoard clickables_updater = SingletonUpdateBoard.getInstance();
-			if (PlayerPanel.p1health > PlayerPanel.p2health) {
-				clickables_updater.updateGameStatusLabel("player 1 win");
-			}
-			else if (PlayerPanel.p1health < PlayerPanel.p2health) {
-				clickables_updater.updateGameStatusLabel("player 2 win");
-			}
-			else {
-				clickables_updater.updateGameStatusLabel("draw");
-			}
-		}
-		*/
 		return num_clickable_tiles;
 		
 	}
 	
+	/**
+	 * Finds tiles that can be clicked on by Player 1 above the tile at tile_board[x_pos][y_pos], and updates them to appear
+	 * clickable (makes them grey tiles).
+	 * @param tile_board - The current state of the game board.
+	 * @param x_pos - The x-coordinate of a given (red) tile.
+	 * @param y_pos - The y-coordinate of a given (red) tile.
+	 */
 	public void findP1ClickableUpTiles(Tile[][] tile_board, int x_pos, int y_pos) {
 		boolean checkAvailable = true; //True if tile available in a direction from tile_board[k][l]
 		boolean crossedBlue = false; //True if I have checked a blue tile
@@ -113,6 +104,13 @@ public class FindClickableP1Tiles {
 		}
 	}
 	
+	/**
+	 * Finds tiles that can be clicked on by Player 1 below the tile at tile_board[x_pos][y_pos], and updates them to appear
+	 * clickable (makes them grey tiles).
+	 * @param tile_board - The current state of the game board.
+	 * @param x_pos - The x-coordinate of a given (red) tile.
+	 * @param y_pos - The y-coordinate of a given (red) tile.
+	 */
 	public void findP1ClickableDownTiles(Tile[][] tile_board, int x_pos, int y_pos, int max_height) {
 		boolean checkAvailable = true;
 		boolean crossedBlue = false;
@@ -153,6 +151,13 @@ public class FindClickableP1Tiles {
 		}
 	}
 	
+	/**
+	 * Finds tiles that can be clicked on by Player 1 left of the tile at tile_board[x_pos][y_pos], and updates them to appear
+	 * clickable (makes them grey tiles).
+	 * @param tile_board - The current state of the game board.
+	 * @param x_pos - The x-coordinate of a given (red) tile.
+	 * @param y_pos - The y-coordinate of a given (red) tile.
+	 */
 	public void findP1ClickableLeftTiles(Tile[][] tile_board, int x_pos, int y_pos) {
 		boolean checkAvailable = true;
 		boolean crossedBlue = false;
@@ -193,6 +198,13 @@ public class FindClickableP1Tiles {
 		}
 	}
 	
+	/**
+	 * Finds tiles that can be clicked on by Player 1 right of the tile at tile_board[x_pos][y_pos], and updates them to appear
+	 * clickable (makes them grey tiles).
+	 * @param tile_board - The current state of the game board.
+	 * @param x_pos - The x-coordinate of a given (red) tile.
+	 * @param y_pos - The y-coordinate of a given (red) tile.
+	 */
 	public void findP1ClickableRightTiles(Tile[][] tile_board, int x_pos, int y_pos, int max_width) {
 		boolean checkAvailable = true;
 		boolean crossedBlue = false;
@@ -233,6 +245,13 @@ public class FindClickableP1Tiles {
 		}
 	}
 	
+	/**
+	 * Finds tiles that can be clicked on by Player 1 diagonally above and to the left of the tile at tile_board[x_pos][y_pos], and 
+	 * updates them to appear clickable (makes them grey tiles).
+	 * @param tile_board - The current state of the game board.
+	 * @param x_pos - The x-coordinate of a given (red) tile.
+	 * @param y_pos - The y-coordinate of a given (red) tile.
+	 */
 	public void findP1ClickableUpLeftTiles(Tile[][] tile_board, int x_pos, int y_pos) {
 		boolean checkAvailable = true;
 		boolean crossedBlue = false;
@@ -278,6 +297,13 @@ public class FindClickableP1Tiles {
 		}
 	}
 	
+	/**
+	 * Finds tiles that can be clicked on by Player 1 diagonally above and to the right of the tile at tile_board[x_pos][y_pos], and 
+	 * updates them to appear clickable (makes them grey tiles).
+	 * @param tile_board - The current state of the game board.
+	 * @param x_pos - The x-coordinate of a given (red) tile.
+	 * @param y_pos - The y-coordinate of a given (red) tile.
+	 */
 	public void findP1ClickableUpRightTiles(Tile[][] tile_board, int x_pos, int y_pos, int max_width) {
 		boolean checkAvailable = true;
 		boolean crossedBlue = false;
@@ -323,6 +349,13 @@ public class FindClickableP1Tiles {
 		}
 	}
 	
+	/**
+	 * Finds tiles that can be clicked on by Player 1 diagonally below and to the left of the tile at tile_board[x_pos][y_pos], and 
+	 * updates them to appear clickable (makes them grey tiles).
+	 * @param tile_board - The current state of the game board.
+	 * @param x_pos - The x-coordinate of a given (red) tile.
+	 * @param y_pos - The y-coordinate of a given (red) tile.
+	 */
 	public void findP1ClickableDownLeftTiles(Tile[][] tile_board, int x_pos, int y_pos, int max_height) {
 		boolean checkAvailable = true;
 		boolean crossedBlue = false;
@@ -368,6 +401,13 @@ public class FindClickableP1Tiles {
 		}
 	}
 	
+	/**
+	 * Finds tiles that can be clicked on by Player 1 diagonally below and to the right of the tile at tile_board[x_pos][y_pos], and 
+	 * updates them to appear clickable (makes them grey tiles).
+	 * @param tile_board - The current state of the game board.
+	 * @param x_pos - The x-coordinate of a given (red) tile.
+	 * @param y_pos - The y-coordinate of a given (red) tile.
+	 */
 	public void findP1ClickableDownRightTiles(Tile[][] tile_board, int x_pos, int y_pos, int max_width, int max_height) {
 		boolean checkAvailable = true;
 		boolean crossedBlue = false;

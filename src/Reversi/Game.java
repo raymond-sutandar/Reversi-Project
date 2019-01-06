@@ -10,11 +10,15 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * The Game class combines and sets up the other classes that make up the game.
+ * @author Raymond Sutandar
+ *
+ */
 public class Game {
 	private static JPanel buildGamePanel(JLabel game_status) {
 		GridBagConstraints game_constraint = new GridBagConstraints();
 		JPanel main_game_panel = new JPanel();
-		//main_game_panel.setPreferredSize(new Dimension(768, 384));
 		main_game_panel.setLayout(new GridBagLayout());
 		
 		PlayerPanel p1_panel = new PlayerPanel();
@@ -41,14 +45,16 @@ public class Game {
 	public static void main(String[] args) throws IOException {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
+				//Set up the grid the game is built upon
 				GridBagConstraints main_constraint = new GridBagConstraints();
 				JFrame game_frame = new JFrame("Reversi");
 				game_frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				//game_frame.setPreferredSize(new Dimension(768, 544));
+				
 				game_frame.setLayout(new GridBagLayout());
 				
 				main_constraint.insets = new Insets(0, 0, 0, 0);
 				
+				//Set up title
 				TitlePanel title = new TitlePanel();
 				title.loadTitleImage();
 				title.repaint();
@@ -56,6 +62,7 @@ public class Game {
 				main_constraint.gridy = 0;
 				game_frame.add(title, main_constraint);
 				
+				//Set up the GameStatusLabel
 				GameStatusLabel game_status = new GameStatusLabel();
 				main_constraint.gridx = 0;
 				main_constraint.gridy = 1;
